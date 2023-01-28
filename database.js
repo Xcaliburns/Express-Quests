@@ -17,12 +17,13 @@ const database = mysql.createPool({
   
   });
   database
+ .query("select * from movies")
 
-  .getConnection()
+  .then((result) => {
 
-  .then(() => {
+    const movies = result[0];
 
-    console.log("Can reach database");
+    console.log(movies);
 
   })
 
@@ -32,7 +33,7 @@ const database = mysql.createPool({
 
   });
 
-  const database = require("./database");
+  // const database = require("./database");
 
 
 const getMovies = (req, res) => {
